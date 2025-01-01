@@ -1,0 +1,108 @@
+/* General Styles */
+.relative-container {
+  background-color: #000; /* Black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.card-box {
+  position: relative;
+  width: 320px; /* Consistent card width */
+  height: 400px; /* Consistent card height */
+  margin: 40px 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Effects */
+.card-box::before,
+.card-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(20px); /* Slight blur for glow effect */
+}
+
+.card-box:hover::before,
+.card-box:hover::after {
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+}
+
+.card-box:nth-child(1)::before,
+.card-box:nth-child(1)::after {
+  background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+
+.card-box:nth-child(2)::before,
+.card-box:nth-child(2)::after {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.card-box:nth-child(3)::before,
+.card-box:nth-child(3)::after {
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+
+/* Content Box */
+.card-content {
+  position: relative;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  z-index: 1;
+  color: #fff;
+  text-align: center; /* Center-align text */
+  transition: padding 0.3s ease;
+  width: 100%; /* Make sure all cards are the same width */
+  height: 100%; /* Make sure all cards are the same height */
+}
+
+.card-content:hover {
+  padding: 60px 40px; /* Slight expansion on hover */
+}
+
+/* Typography */
+.card-content h2 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.card-content a {
+  display: inline-block;
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-content a:hover {
+  background: #ffcf4d;
+  box-shadow: 0 5px 15px rgba(255, 207, 77, 0.5);
+}
